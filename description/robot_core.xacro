@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="transforming_robot">
+
+    <!-- Define materials -->
+    <material name="white">
+        <color rgba="1 1 1 1" />
+    </material>
+
+    <material name="orange">
+        <color rgba="1 0.3 0.1 1"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0.2 0.2 1 1"/>
+    </material>
+
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <!-- Base link -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.3 0.3 0.1"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.3 0.3 0.1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.7"/>
+            <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.02"/>
+        </inertial>
+    </link>
+
+    <!-- Chassis link -->
+    <link name="chassis">
+        <visual>
+            <origin xyz="0 0 0.05"/>
+            <geometry>
+                <box size="0.4 0.2 0.1"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.05"/>
+            <geometry>
+                <box size="0.4 0.2 0.1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.4"/>
+            <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+        </inertial>
+    </link>
+
+    <!-- Left upper leg link -->
+    <link name="left_upper_leg">
+        <visual>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.05"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.05"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.4"/>
+            <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.002" iyz="0" izz="0.002"/>
+        </inertial>
+    </link>
+
+    <!-- Left lower leg link -->
+    <link name="left_lower_leg">
+        <visual>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.04"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.04"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.25"/>
+            <inertia ixx="0.0015" ixy="0" ixz="0" iyy="0.0015" iyz="0" izz="0.0015"/>
+        </inertial>
+    </link>
+
+    <!-- Left wheel link -->
+    <link name="left_wheel">
+        <visual>
+            <origin xyz="0 0 -0.05"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.1"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.05"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.2"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+
+    <!-- Right upper leg link -->
+    <link name="right_upper_leg">
+        <visual>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.05"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.05"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.002" iyz="0" izz="0.002"/>
+        </inertial>
+    </link>
+
+    <!-- Right lower leg link -->
+    <link name="right_lower_leg">
+        <visual>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.04"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.04"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.4"/>
+            <inertia ixx="0.0015" ixy="0" ixz="0" iyy="0.0015" iyz="0" izz="0.0015"/>
+        </inertial>
+    </link>
+
+    <!-- Right wheel link -->
+    <link name="right_wheel">
+        <visual>
+            <origin xyz="0 0 0.05"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.1"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0.05"/>
+            <geometry>
+                <cylinder length="0.1" radius="0.1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.2"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+
+    <!-- Joint connecting base link to chassis -->
+    <joint name="chassis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Joint connecting chassis to left upper leg -->
+    <joint name="left_upper_leg_joint" type="revolute">
+        <parent link="chassis"/>
+        <child link="left_upper_leg"/>
+        <origin xyz="-0.17 0 -0.05"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Joint connecting left upper leg to left lower leg -->
+    <joint name="left_lower_leg_joint" type="revolute">
+        <parent link="left_upper_leg"/>
+        <child link="left_lower_leg"/>
+        <origin xyz="0 0 -0.3"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Joint connecting left lower leg to left wheel -->
+    <joint name="left_wheel_joint" type="continuous">
+        <parent link="left_lower_leg"/>
+        <child link="left_wheel"/>
+        <origin xyz="0 0 -0.35" rpy="0 1.5708 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- Joint connecting chassis to right upper leg -->
+    <joint name="right_upper_leg_joint" type="revolute">
+        <parent link="chassis"/>
+        <child link="right_upper_leg"/>
+        <origin xyz="0.17 0 -0.05"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Joint connecting right upper leg to right lower leg -->
+    <joint name="right_lower_leg_joint" type="revolute">
+        <parent link="right_upper_leg"/>
+        <child link="right_lower_leg"/>
+        <origin xyz="0 0 -0.3"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="100" velocity="1"/>
+    </joint>
+
+    <!-- Joint connecting right lower leg to right wheel -->
+    <joint name="right_wheel_joint" type="continuous">
+        <parent link="right_lower_leg"/>
+        <child link="right_wheel"/>
+        <origin xyz="0 0 -0.35" rpy="0 1.5708 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+</robot>
